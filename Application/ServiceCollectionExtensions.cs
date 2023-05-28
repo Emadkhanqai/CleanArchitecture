@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Application.Pipeline;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +17,10 @@ namespace Application
                 // MediatR
                 .AddMediatR(Assembly.GetExecutingAssembly())
                 // Fluent Validation
-                .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+                .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly())
+                // Custom Exception MediatR
+                .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
+
 
         }
     }

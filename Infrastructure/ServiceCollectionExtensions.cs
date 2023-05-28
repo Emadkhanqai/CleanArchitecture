@@ -18,6 +18,7 @@ namespace Infrastructure
             return services
                 // Interface ko Implementation pe map kerwaya
                 .AddTransient<IPropertyRepo, PropertyRepo>()
+                .AddTransient<IImageRepo, ImageRepo>()
                 .AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
