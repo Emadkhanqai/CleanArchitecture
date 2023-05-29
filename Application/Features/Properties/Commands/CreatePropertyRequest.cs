@@ -1,4 +1,5 @@
 ﻿using Application.Models;
+using Application.Pipeline.Contracts;
 using Application.Repositories;
 using AutoMapper;
 using Domain;
@@ -7,7 +8,7 @@ using MediatR;
 namespace Application.Features.Properties.Commands
 {
     // IRequest added Mediatr on this class
-    public class CreatePropertyRequest: IRequest<bool>
+    public class CreatePropertyRequest: IRequest<bool>, IValidateable
     {
         // Ye aik DTO class hy
         public NewPropertyDto PropertyDto { get; set; }

@@ -19,7 +19,9 @@ namespace Application
                 // Fluent Validation
                 .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly())
                 // Custom Exception MediatR
-                .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
+                .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>))
+                // Redis Pipeline
+                .AddTransient(typeof(IPipelineBehavior<,>), typeof(CachePipelineBehavior<,>));
 
 
         }

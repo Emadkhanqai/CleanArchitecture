@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Application.Exceptions;
+﻿using Application.Exceptions;
+using Application.Pipeline.Contracts;
 using FluentValidation;
 using MediatR;
 
@@ -11,7 +7,7 @@ namespace Application.Pipeline
 {
     public class ValidationPipelineBehavior<TRequest, TResponse> 
         : IPipelineBehavior<TRequest, TResponse> where TRequest 
-        : IRequest<TResponse>
+        : IRequest<TResponse>, IValidateable
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
 

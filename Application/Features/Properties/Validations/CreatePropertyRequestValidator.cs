@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Application.Features.Properties.Commands;
+﻿using Application.Features.Properties.Commands;
 using FluentValidation;
 
 namespace Application.Features.Properties.Validations
